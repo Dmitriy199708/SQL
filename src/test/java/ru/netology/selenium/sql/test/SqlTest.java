@@ -1,20 +1,15 @@
 package ru.netology.selenium.sql.test;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 import ru.netology.selenium.sql.data.DataHelper;
 import ru.netology.selenium.sql.data.SQLHelper;
 import ru.netology.selenium.sql.page.LoginPage;
-
-import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.selenium.sql.data.SQLHelper.cleanAuthCodes;
 import static ru.netology.selenium.sql.data.SQLHelper.cleanDatabase;
 
-public class Test {
+public class SqlTest {
     LoginPage loginPage;
 
     @AfterEach
@@ -33,7 +28,7 @@ public class Test {
         loginPage = open("http://localhost:9999", LoginPage.class);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     @DisplayName("Should successfully Login to dashboard with exist Login and password from sut test data")
     void shouLdSuccessfulLogin() {
         var authInfo = DataHelper.getAuthInfoWithTestData();
@@ -44,7 +39,7 @@ public class Test {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     @DisplayName("Shovld get error notification if user is not exist in base")
     void shouLdbetErrorNotificationifLoginiithRandonUserwithoutAddingToBase() {
         var authInfo = DataHelper.generateRandomUser();
@@ -53,7 +48,7 @@ public class Test {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     @DisplayName("Should get error notification if login with exist in base and active user and random verification code")
     void shouLd6etErrorNotificationIFLoginWithExistUserAndRandomVerificationCode() {
         var authInfo = DataHelper.getAuthInfoWithTestData();

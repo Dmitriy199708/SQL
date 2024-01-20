@@ -15,14 +15,14 @@ public class SQLHelper {
     }
 
     private static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3000/app", "app", "pass");
+        return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass");
     }
 
     @SneakyThrows
     public static DataHelper.VerificationCode getVerificationCode() {
         var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
         var conn = getConn();
-        var code = QUERY_RUNNER.query(conn,codeSQL,new ScalarHandler<String>());
+        var code = QUERY_RUNNER.query(conn, codeSQL, new ScalarHandler<String>());
         return new DataHelper.VerificationCode(code);
     }
 

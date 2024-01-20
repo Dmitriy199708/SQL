@@ -24,17 +24,6 @@ public class DataHelper {
         return faker.internet().password();
     }
 
-    @Value
-    public static class AuthInfo {
-        String Login;
-        String Password;
-    }
-
-    @Value
-    public static class VerificationCode {
-        String Code;
-    }
-
     public static AuthInfo generateRandomUser() {
         return new AuthInfo(generateRandomLogin(), generateRandomPassword());
     }
@@ -43,6 +32,16 @@ public class DataHelper {
         return new VerificationCode(faker.numerify("######"));
     }
 
+    @Value
+    public static class AuthInfo {
+        String login;
+        String password;
+    }
+
+    @Value
+    public static class VerificationCode {
+        String code;
+    }
 
 }
 
