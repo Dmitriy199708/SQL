@@ -1,4 +1,16 @@
 Домашнее задание к занятию «3.2. SQL»
+Для запуска бд необходимо ввести команду:  docker compose up
+Далее , запустить jar-файл java -jar artifacts/app-deadline.jar -P:jdbc.url=jdbc:mysql://localhost:3307/app
+После запустить тесты 
+
+При повторном запуске тестов 
+1. Остановить SUT командой ctrl+C
+2. Запустить java -jar artifacts/app-deadline.jar -P:jdbc.url=jdbc:mysql://localhost:3307/app
+3. Запустить тесты.
+
+
+
+
 В качестве результата пришлите ссылки на ваши GitHub-проекты в личном кабинете студента на сайте netology.ru.
 
 Все задачи этого занятия нужно делать в разных репозиториях.

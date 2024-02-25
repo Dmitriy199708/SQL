@@ -9,7 +9,8 @@ import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.selenium.sql.data.SQLHelper.cleanAuthCodes;
 import static ru.netology.selenium.sql.data.SQLHelper.cleanDatabase;
 
-public class SqlTest {
+public class
+SqlTest {
     LoginPage loginPage;
 
     @AfterEach
@@ -36,18 +37,14 @@ public class SqlTest {
         verificationPage.verifyVerificationPageVisiblity();
         var verificationCode = SQLHelper.getVerificationCode();
         verificationPage.validVerify(verificationCode.getCode());
-
     }
-
     @Test
     @DisplayName("Shovld get error notification if user is not exist in base")
     void shouLdbetErrorNotificationifLoginiithRandonUserwithoutAddingToBase() {
         var authInfo = DataHelper.generateRandomUser();
         loginPage.validLogin(authInfo);
         loginPage.verifyErrorNotification("Ошибка! \nНеверно указан логин или пароль");
-
     }
-
     @Test
     @DisplayName("Should get error notification if login with exist in base and active user and random verification code")
     void shouLd6etErrorNotificationIFLoginWithExistUserAndRandomVerificationCode() {
@@ -56,6 +53,6 @@ public class SqlTest {
         verificationPage.verifyVerificationPageVisiblity();
         var verificationCode = DataHelper.generateRandonVerificationCode();
         verificationPage.verify(verificationCode.getCode());
-        verificationPage.verifyErrorNotification("Ошибка! \nНеверно указан код! Попробуйте еще раз.");
+        verificationPage.verifyErrorNotification("Ошибка! Неверно указан код! Попробуйте ещё раз.");
     }
 }
